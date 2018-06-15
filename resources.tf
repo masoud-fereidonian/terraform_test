@@ -38,3 +38,24 @@ resource "aws_security_group" "subnetsecurity" {
     protocol  = "tcp"
   }
 }
+
+resource "azurerm_resource_group" "azy_network" {
+  location = "West US"
+  name     = "devresourcegroup"
+}
+
+resource "azurerm_virtual_network" "blue_virtual_network" {
+  address_space       = ["10.0.0.0/16"]
+  location            = "West US"
+  name                = "bluevirtualnetwork"
+  resource_group_name = "${azurerm_resource_group.azy_network.name}"
+
+  subnet {
+    name           = "subnet1"
+    address_prefix = "10.0.1.0/24"
+  }
+
+  tags {
+    env = "blue-world"
+  }
+}
