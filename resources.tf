@@ -1,7 +1,7 @@
-# resource "google_compute_network" "our_development_network" {
-#   name                    = "devnetwork"
-#   auto_create_subnetworks = true
-# }
+resource "google_compute_network" "our_development_network" {
+  name                    = "devnetwork"
+  auto_create_subnetworks = true
+}
 
 resource "aws_vpc" "environment_example_two" {
   cidr_block           = "10.0.0.0/16"

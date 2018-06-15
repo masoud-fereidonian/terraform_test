@@ -1,8 +1,8 @@
-# provider "google" {
-#   credentials = "${file("../accounts.json")}"
-#   project     = "lynda"
-#   region      = "us-west1"
-# }
+provider "google" {
+  credentials = "${file("../../../gcloud-account.json")}"
+  project     = "lynda-207317"
+  region      = "us-west1"
+}
 
 provider "aws" {
   region = "us-west-2"
